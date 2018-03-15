@@ -114,7 +114,7 @@ namespace System.Linq
                 }
             }
 
-            throw Error.MoreThanOneElement();
+            return default(TSource);
         }
 
         public static TSource SingleOrDefault<TSource>(this IEnumerable<TSource> source, Func<TSource, bool> predicate)
@@ -140,7 +140,7 @@ namespace System.Linq
                         {
                             if (predicate(e.Current))
                             {
-                                throw Error.MoreThanOneMatch();
+                                return default(TSource);
                             }
                         }
 

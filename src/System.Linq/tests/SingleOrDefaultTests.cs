@@ -50,8 +50,9 @@ namespace System.Linq.Tests
         public void ManyElementIList()
         {
             int[] source = { 4, 4, 4, 4, 4 };
+            int? expected = null;
 
-            Assert.Throws<InvalidOperationException>(() => source.SingleOrDefault());
+            Assert.Equal(expected, source.SingleOrDefault());
         }
 
         [Fact]
@@ -76,8 +77,9 @@ namespace System.Linq.Tests
         public void ManyElementNotIList()
         {
             IEnumerable<int> source = RepeatedNumberGuaranteedNotCollectionType(3, 5);
+            int? expected = null;
 
-            Assert.Throws<InvalidOperationException>(() => source.SingleOrDefault());
+            Assert.Equal(expected, source.SingleOrDefault());
         }
 
         [Fact]
@@ -129,8 +131,9 @@ namespace System.Linq.Tests
         public void ManyElementsPredicateTrueForFirstAndFifth()
         {
             int[] source = { 2, 3, 1, 7, 10, 13, 19, 9 };
+            int? expected = null;
 
-            Assert.Throws<InvalidOperationException>(() => source.SingleOrDefault(i => i % 2 == 0));
+            Assert.Equal(expected, source.SingleOrDefault(i => i % 2 == 0));
         }
 
         [Theory]
